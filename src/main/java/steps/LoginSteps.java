@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import action.LoginPageAction;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -13,14 +14,15 @@ import cucumber.api.java.en.When;
 public class LoginSteps {
 
 	WebDriver driver;
+	LoginPageAction lpa= new LoginPageAction();
 	 
 	@Given("^when user open borwser and enter url$")
 	public void when_user_open_borwser_and_enter_url() throws Throwable {
-		System.out.println(" I am in Given -for browser invocation ");
+		/*System.out.println(" I am in Given -for browser invocation ");
 		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\Drivers\\chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.get("https://www.freecrm.com/index.html");
-		driver.manage().window().maximize();
+		driver.manage().window().maximize();*/
 	}
 
 	@When("^user Enter valid username and Enter valid Password$")
@@ -52,5 +54,26 @@ public class LoginSteps {
 		//homemenu.isDisplayed()
 		
 	}
+	
+	
+	
+	//======================================feature file Login_outloin.feature==============================
+
+@Given("^User enters Username \"([^\"]*)\" and User enters Password \"([^\"]*)\"$")
+public void user_enters_Username_and_User_enters_Password(String arg1, String arg2) throws Throwable {
+	
+    lpa.user_enters_Username_and_User_enters_Password(arg1, arg2);
+}
+
+@Given("^User clicks on Login button$")
+public void user_clicks_on_Login_button() throws Throwable {
+  
+}
+
+@Then("^User is successfully logged in$")
+public void user_is_successfully_logged_in() throws Throwable {
+  
+}
+
 
 }
